@@ -6,13 +6,14 @@ const radixMap = new Map<string, number>([
     ['x', 16],
 ]);
 
-while (true) {
-    const input = prompt('Enter a number to convert:');
+if (import.meta.main)
+    while (true) {
+        const input = prompt('Enter a number to convert:');
 
-    if (input === null) break;
+        if (input === null) break;
 
-    console.log(getResult(input));
-}
+        console.log(getResult(input));
+    }
 
 function getResult(input: string): string {
     const radix = radixMap.get(input[0]);
