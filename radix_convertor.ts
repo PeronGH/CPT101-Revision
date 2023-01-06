@@ -21,6 +21,8 @@ function getResult(input: string): string {
         radix
     );
 
+    if (inputNumber.toString() === 'NaN') return 'Invalid input\n';
+
     return ''.concat(
         `Binary: ${inputNumber.toString(2)}\n`,
         `Octal: ${inputNumber.toString(8)}\n`,
