@@ -1,4 +1,4 @@
-# CPT111 Revision
+# CPT101 Revision
 
 ## Lecture 1
 
@@ -168,7 +168,7 @@ Here is a brief overview of some common hardware components:
 
 John von Neumann was an Austria-Hungary-born American mathematician who made significant contributions to a wide range of fields, including quantum physics, functional analysis, set theory, topology, economics, computer science, numerical analysis, and hydrodynamics.
 
-### The Von Neumann Model
+### Von Neumann Model
 
 * The von Neumann model is a theoretical model of a computer that describes the structure and organization of a computer system.
 * It was introduced by John von Neumann, a Hungarian-American mathematician and computer scientist, in the late 1940s.
