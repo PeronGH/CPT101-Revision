@@ -172,7 +172,7 @@ John von Neumann was an Austria-Hungary-born American mathematician who made sig
 
 * The von Neumann model is a theoretical model of a computer that describes the structure and organization of a computer system.
 * It was introduced by John von Neumann, a Hungarian-American mathematician and computer scientist, in the late 1940s.
-* It consists of a processing unit, a memory unit, an input/output (I/O) unit.
+* It consists of a processing unit, a memory unit and an input/output (I/O) unit.
 * A program is a set of instructions that tell the computer what to do. It is stored in the memory unit and represented by binary codes.
 * The memory unit is rewritable, meaning that it can store and retrieve data and instructions, and it can also be erased and rewritten with new data and instructions.
 * A process is an active part of the machine that executes the instructions in a program.
@@ -229,3 +229,77 @@ The von Neumann model uses a rewritable memory, which means that the instruction
 * The Harvard architecture can be more efficient for certain types of tasks, such as real-time applications, where fast access to both instructions and data is critical.
 * It can be more complex and more expensive to implement than the Von Neumann architecture, which is the more common architecture used in modern computers.
 * It can be less flexible than the Von Neumann architecture, as it requires the use of separate memory spaces for instructions and data, which can limit the ways in which the computer can be used.
+
+#### Who Is the winner?
+
+* Von Neumann Architecture has “won” — most memory (hard drives and RAM) can hold data as well as instructions simultaneously
+* From another point of view the Harvard Architecture is still going strong — most desktop CPU have an internal “instruction cache” feeding the control unit and a completely separate data cache
+
+## Lecture 3
+
+### [Machine instructions and HLL](#Comparison of Machine Instructions and HLLs)
+
+### Semantic Gap
+
+The "semantic gap" refers to the difference between the way humans and computers understand and interpret information.
+
+### Translation
+
+#### Programs
+
+Translation is done by special programs such as:
+
+* Compilers:
+  * Translate source code written in a high-level language (HLL) into machine code that can be executed by a computer
+  * Convert the entire source code of a program into machine instructions at once
+  * Produce a standalone executable file that can be run without the need for an interpreter
+* Assemblers:
+  * Translate assembly language code into machine code
+  * Assembly language is a low-level programming language that is easier for humans to read and write than machine code
+  * Assemblers convert assembly language code into machine code that can be executed by a computer
+* Interpreters:
+  * Execute code written in a high-level language (HLL) without first translating it into machine instructions
+  * Read and execute the source code of a program line by line, converting each line of HLL code into the equivalent machine instructions on the fly
+  * Do not produce a standalone executable file, but rather execute the code directly from the source code
+  * Typically used for scripting languages and other types of interpreted languages
+
+#### Steps
+
+Here is generally the process for creating an executable program from source code written in a high-level language (HLL):
+
+1. Edit: A programmer writes or modifies the source code for a program using a text editor or integrated development environment (IDE).
+2. HLL source file: The source code is written in a high-level language (HLL) such as C, C++, or Java.
+3. Compile: The source code is passed through a compiler, which translates it into machine code that can be executed by the computer's processor. The compiler may also produce binary object files and library files as intermediate products of the compilation process.
+4. Binary object files & Library files: Binary object files contain machine code that has been translated from HLL source code, but they are not yet ready to be executed as a standalone program. They may need to be combined with other object files and linked with library files to create a complete executable program.
+5. Link: The object files and library files are combined by a linker to create a single executable file.
+6. Executable file: The resulting executable file can be run on a computer.
+7. Load: When the executable file is run, it is loaded into memory by the operating system.
+8. Run: The program is executed by the computer's processor, following the instructions contained in the machine code of the executable file.
+
+#### Errors
+
+##### What to do with Compile-time errors?
+
+Compile-time errors are mistakes in a program that are detected by the compiler when the source code is being translated into machine code. These errors can be syntax errors (e.g., a typo in a keyword, an incorrectly formatted statement), type errors (e.g., trying to use a string where an integer is expected), or other problems that prevent the compiler from successfully translating the source code.
+
+To fix compile-time errors, you will need to modify the source code to correct the mistakes that are causing the errors. Some IDEs and text editors have features that can help you identify and fix compile-time errors, such as syntax highlighting and error highlighting.
+
+Once you have fixed the errors, you will need to run the compiler again to create a new version of the program. If there are no more compile-time errors, the compiler will produce a machine code executable file that you can run. If there are still errors, you will need to continue modifying the source code and recompiling until all the errors have been resolved.
+
+##### What to do with Link-time errors?
+
+Link-time errors are mistakes that are detected by the linker when it is combining object files and libraries to create an executable program. These errors can occur when the linker is unable to resolve external references to symbols (e.g., variables, functions) defined in other object files or libraries.
+
+To fix link-time errors, you will need to modify the source code or the linker settings to ensure that the required object files and libraries are being included in the linking process. This may involve modifying the #include statements in your source code to include the necessary header files, or modifying the linker command line to include the required libraries.
+
+Once you have fixed the errors and modified the source code or linker settings as necessary, you will need to run the compiler and linker again to create a new version of the program. If there are no more link-time errors, the linker will produce a machine code executable file that you can run. If there are still errors, you will need to continue modifying the source code or linker settings and recompiling and relinking until all the errors have been resolved.
+
+##### What to do with Load-time errors?
+
+Load-time errors are mistakes that are detected when a program is being loaded into memory by the operating system. These errors can occur when the program is unable to access the resources it needs to run, such as files or libraries, or when there are conflicts with other programs that are running at the same time.
+
+To fix load-time errors, you may need to modify the program's dependencies or configuration to ensure that it has access to the resources it needs. This may involve modifying the program's configuration file, installing missing libraries or drivers, or ensuring that there are no conflicts with other programs.
+
+If the load-time errors are caused by a lack of system resources, you may need to close other programs or free up system resources (e.g., by uninstalling unnecessary programs or deleting temporary files) to make room for the program.
+
+Once you have fixed the errors and modified the program as necessary, you will need to run the program again to see if the load-time errors have been resolved. If the program runs successfully, the load-time errors have been fixed. If the errors persist, you may need to continue troubleshooting and modifying the program until the errors are resolved.
