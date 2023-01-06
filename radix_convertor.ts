@@ -3,6 +3,7 @@ const radixMap = new Map<string, number>([
     ['o', 8],
     ['d', 10],
     ['h', 16],
+    ['x', 16],
 ]);
 
 while (true) {
