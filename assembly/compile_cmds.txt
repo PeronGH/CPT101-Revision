@@ -1,5 +1,5 @@
-clang++ -fasm-blocks -m32 -o3
+clang++ -fasm-blocks -m32 -O3
 
-clang -fasm-blocks -m32 -o3
+clang -fasm-blocks -m32 -O3
 
-clang -fasm-blocks -m32 -o3 -S -masm=intel
+clang -fasm-blocks -m32 -O3 -S -masm=intel
