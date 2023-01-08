@@ -31,7 +31,9 @@ function getResult(input: string): string {
         `Decimal: ${inputNumber.toString(10)}\n`,
         `Hexadecimal: ${inputNumber.toString(16).toUpperCase()}\n`,
         `BCD: ${[...inputNumber.toString()]
-            .map(ch => (ch === '.' ? '.' : (+ch).toString(2).padStart(4, '0')))
+            .map(ch =>
+                /^\d+$/.test(ch) ? (+ch).toString(2).padStart(4, '0') : ch
+            )
             .join(' ')}\n`
     );
 }
