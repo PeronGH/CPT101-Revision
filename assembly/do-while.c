@@ -2,13 +2,11 @@
 
 int main() {
     int sum = 0;
-
     
     // int i = 5;
     // do {
     //     sum += i;
     // } while (--i != 0);
-
 
     __asm {
         mov ecx, 5
