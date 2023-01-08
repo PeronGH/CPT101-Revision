@@ -25,6 +25,7 @@ function getResult(input: string): string {
     if (isNaN(inputNumber)) return 'Invalid input\n';
 
     return ''.concat(
+        `IEEE 754: ${toIEEE754(inputNumber)}\n`,
         `Binary: ${inputNumber.toString(2)}\n`,
         `Octal: ${inputNumber.toString(8)}\n`,
         `Decimal: ${inputNumber.toString(10)}\n`,
@@ -33,4 +34,12 @@ function getResult(input: string): string {
             .map(ch => (ch === '.' ? '.' : (+ch).toString(2).padStart(4, '0')))
             .join(' ')}\n`
     );
+}
+
+function toIEEE754(number: number): string {
+    const floatArray = new Float64Array(1);
+    floatArray[0] = number;
+    const view = new Uint8Array(floatArray.buffer);
+    const binaryStrings = [...view].map(b => b.toString(2).padStart(8, '0'));
+    return binaryStrings.reverse().join('');
 }
