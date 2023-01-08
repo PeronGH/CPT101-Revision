@@ -1,11 +1,3 @@
-const radixMap = new Map<string, number>([
-    ['b', 2],
-    ['o', 8],
-    ['d', 10],
-    ['h', 16],
-    ['x', 16],
-]);
-
 if (import.meta.main)
     while (true) {
         const input = prompt('Enter a number to convert:');
@@ -16,12 +8,19 @@ if (import.meta.main)
     }
 
 function getResult(input: string): string {
-    const radix = radixMap.get(input[0]);
+    let inputNumber = 0;
 
-    const inputNumber = parseInt(
-        radix === undefined ? input : input.slice(1),
-        radix
-    );
+    if (input.toLowerCase().startsWith('bcd')) {
+        input = input.slice(3).replaceAll(/\s+/g, '');
+        for (let i = 0; i < input.length; i += 4) {
+            const bcd = input.slice(i, i + 4);
+            const num = parseInt(bcd, 2);
+
+            if (num > 9) return 'Invalid BCD';
+            
+            inputNumber = inputNumber * 10 + num;
+        }
+    } else inputNumber = /^[bodx]/i.test(input) ? +('0' + input) : +input;
 
     if (isNaN(inputNumber)) return 'Invalid input\n';
 
@@ -29,6 +28,9 @@ function getResult(input: string): string {
         `Binary: ${inputNumber.toString(2)}\n`,
         `Octal: ${inputNumber.toString(8)}\n`,
         `Decimal: ${inputNumber.toString(10)}\n`,
-        `Hexadecimal: ${inputNumber.toString(16).toUpperCase()}\n`
+        `Hexadecimal: ${inputNumber.toString(16).toUpperCase()}\n`,
+        `BCD: ${[...inputNumber.toString()]
+            .map(ch => (+ch).toString(2).padStart(4, '0'))
+            .join(' ')}\n`
     );
 }
