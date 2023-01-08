@@ -7,7 +7,6 @@ int main() {
     // int i = 5;
     // do {
     //     sum += i;
-    //     i++;
     // } while (--i != 0);
 
 
