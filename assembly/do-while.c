@@ -3,6 +3,14 @@
 int main() {
     int sum = 0;
 
+    
+    // int i = 0;
+    // do {
+    //     sum += i;
+    //     i++;
+    // } while (i < 5);
+
+
     __asm {
         mov ecx, 5
     l1:
