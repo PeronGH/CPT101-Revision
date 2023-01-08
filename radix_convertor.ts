@@ -16,8 +16,8 @@ function getResult(input: string): string {
             const bcd = input.slice(i, i + 4);
             const num = parseInt(bcd, 2);
 
-            if (num > 9) return 'Invalid BCD';
-            
+            if (num > 9) return 'Invalid BCD\n';
+
             inputNumber = inputNumber * 10 + num;
         }
     } else inputNumber = /^[bodx]/i.test(input) ? +('0' + input) : +input;
