@@ -4,11 +4,11 @@ int main() {
     int sum = 0;
 
     
-    // int i = 0;
+    // int i = 5;
     // do {
     //     sum += i;
     //     i++;
-    // } while (i < 5);
+    // } while (--i != 0);
 
 
     __asm {
