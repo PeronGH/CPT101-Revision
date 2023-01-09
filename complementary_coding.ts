@@ -28,25 +28,18 @@ class ComplementaryCoding {
         return n;
     }
 
-    fromComplementary(n: number) {
-        if (n < this.from || n > this.to)
+    fromComplementary(c: number) {
+        if (c < this.from || c > this.to)
             throw new Error('n must be between from and to');
 
-        if (n < this.smallestNeg) return n;
-        return n - this.size;
+        if (c < this.smallestNeg) return c;
+        return c - this.size;
     }
 }
 
 const cc = new ComplementaryCoding(1000);
 
 // example of x - y using complementary coding
-
-const x = 100;
-const y = 200;
-
-const xMinusY = cc.fromComplementary(
-    cc.toComplementary(x) + cc.toComplementary(-y)
-);
 
 // explanation of x - y using complementary coding
 // x = 100, y = 200
@@ -57,5 +50,16 @@ const xMinusY = cc.fromComplementary(
 // c(x - y) = 900
 // x - y = 900 - 1000
 // x - y = -100
+
+const x = 100,
+    y = 200;
+
+const cX = cc.toComplementary(x);
+
+const cNegY = cc.toComplementary(-y);
+
+const cXMinusY = cX + cNegY;
+
+const xMinusY = cc.fromComplementary(cXMinusY);
 
 console.log(xMinusY);
