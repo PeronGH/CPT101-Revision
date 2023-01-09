@@ -44,5 +44,13 @@ function toIEEE754(number: number): string {
     floatArray[0] = number;
     const view = new Uint8Array(floatArray.buffer);
     const binaryStrings = [...view].map(b => b.toString(2).padStart(8, '0'));
-    return binaryStrings.reverse().join('');
+    const ieee754 = binaryStrings.reverse().join('');
+
+    return (
+        ieee754.slice(0, 1) +
+        ' ' +
+        ieee754.slice(1, 12) +
+        ' ' +
+        ieee754.slice(12)
+    );
 }
