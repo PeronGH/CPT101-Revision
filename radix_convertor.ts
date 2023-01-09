@@ -25,7 +25,6 @@ function getResult(input: string): string {
     if (isNaN(inputNumber)) return 'Invalid input\n';
 
     return ''.concat(
-        `IEEE 754: ${toIEEE754(inputNumber)}\n`,
         `Binary: ${inputNumber.toString(2)}\n`,
         `Octal: ${inputNumber.toString(8)}\n`,
         `Decimal: ${inputNumber.toString(10)}\n`,
@@ -34,7 +33,9 @@ function getResult(input: string): string {
             .map(ch =>
                 /^\d+$/.test(ch) ? (+ch).toString(2).padStart(4, '0') : ch
             )
-            .join(' ')}\n`
+            .join(' ')}\n`,
+        `Int Binary: ${(inputNumber >>> 0).toString(2).padStart(32, '0')}\n`,
+        `IEEE 754: ${toIEEE754(inputNumber)}\n`
     );
 }
 

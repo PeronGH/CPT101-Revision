@@ -1,7 +1,3 @@
-function toBinary(n: number) {
-    return (n >>> 0).toString(2);
-}
-
 class ComplementaryCoding {
     constructor(
         private readonly to: number,
@@ -35,6 +31,13 @@ class ComplementaryCoding {
         if (c < this.smallestNeg) return c;
         return c - this.size;
     }
+
+    addComplementary(a: number, b: number) {
+        let result = a + b;
+        // handle overflow
+        while (result > this.to) result -= this.size;
+        return result;
+    }
 }
 
 const cc = new ComplementaryCoding(1000);
@@ -58,7 +61,7 @@ const cX = cc.toComplementary(x);
 
 const cNegY = cc.toComplementary(-y);
 
-const cXMinusY = cX + cNegY;
+const cXMinusY = cc.addComplementary(cX, cNegY);
 
 const xMinusY = cc.fromComplementary(cXMinusY);
 
