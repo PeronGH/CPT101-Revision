@@ -18,6 +18,11 @@ class ComplementaryCoding {
     }
 
     toComplementary(n: number) {
+        if (n >= this.smallestNeg || n < this.smallestNeg - this.size)
+            throw new Error(
+                'n must be between smallestNeg and smallestNeg-size'
+            );
+
         while (n < this.from) n += this.size;
         while (n > this.to) n -= this.size;
         return n;
