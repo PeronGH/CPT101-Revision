@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 int main() {
-    int intArray[] = {2, 1, 3};
+    int intArray[] = {3, 1, 2};
 
     __asm {
         mov ecx, 2
@@ -17,7 +17,6 @@ int main() {
         add esi, 4
         
         ; jmp L1
-        dec ecx
         loop L1
     }
 
