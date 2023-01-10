@@ -9,7 +9,7 @@ int main() {
         mov eax, 0
         mov ebx, 0
     add_loop:
-        add eax, array[ebx]
+        add eax, array[ebx] // or [array + ebx]
         add ebx, 4
         loop add_loop
     end:
